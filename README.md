@@ -63,6 +63,8 @@ CREATE TABLE if NOT EXISTS Notifications (
   Notification_Date timestamp NULL DEFAULT NULL,
   FOREIGN KEY (ID_User) REFERENCES User(ID)
 );
+
+
 Instructions
 Log into your local SQL server.
 Select the database you intend to use for this project.
