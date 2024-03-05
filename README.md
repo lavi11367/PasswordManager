@@ -11,7 +11,9 @@ Execute the provided SQL commands to create the User, Passwords, Massage_table, 
 Ensure that the tables are created successfully and contain the appropriate columns as outlined above.
 By following these instructions, your database will be set up with the necessary tables and ready to support the project's SQL functionalities. If you encounter any issues with the table creation, ensure your SQL server is up to date and that you have the necessary permissions to create tables.
 
-*User Table*
+
+
+User Table
 
 This table stores user information.
 
