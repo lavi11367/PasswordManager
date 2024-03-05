@@ -1,0 +1,194 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+.container1{
+    width: 35%;
+    background: #fcf6fb00;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    top: 25%;
+    left: 33%;
+    border: 1px #e0cccc8f solid;
+  
+}
+.container1 h2{
+  font-weight: 800;
+  font-size: 2.31rem;
+  padding: 1rem 1.75rem;
+  text-align: center;
+  border-bottom: 1px #dcd5d591 solid;
+  color: rgba(50, 50, 114, 0.9);
+}
+.wrapper{
+  margin: 1.25rem 1.75rem;
+}
+.wrapper .input-box{
+  position: relative;
+}
+.input-box input{
+    width: 100%;
+    height: 53px;
+    color: #000;
+    background: none;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 1.4px;
+    border: 1px solid #594f4f42;
+    padding: 0 2.85rem 0 1rem;
+}
+.input-box span{
+  position: absolute;
+  right: 13px;
+  cursor: pointer;
+  line-height: 53px;
+  color: #707070;
+}
+.input-box span:hover{
+  color: #4285F4!important;
+}
+.wrapper .pass-indicator{
+  width: 100%;
+  height: 10px;
+  position: relative;
+  background: #dfdfdf;
+  margin-top: 0.75rem;
+  border-radius: 25px;
+}
+.pass-indicator::before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+.pass-indicator#weak::before{
+  width: 20%;
+  background: #E64A4A;
+}
+.pass-indicator#medium::before{
+  width: 50%;
+  background: #f1c80b;
+}
+.pass-indicator#strong::before{
+  width: 100%;
+  background: #4285F4;
+}
+.wrapper .pass-length{
+  margin: 1.56rem 0 1.25rem;
+}
+.pass-length .details{
+  display: flex;
+  justify-content: space-between;
+}
+.pass-length input{
+  width: 100%;
+  height: 5px;
+}
+.pass-settings .options{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.pass-settings .options .option{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: calc(100% / 2);
+}
+.options .option:first-child{
+  pointer-events: none;
+}
+.options .option:first-child input{
+  opacity: 0.7;
+}
+.options .option input{
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+.options .option label{
+  cursor: pointer;
+  color: #4f4f4f;
+  padding-left: 2.63rem;
+}
+.wrapper .generate-btn{
+    width: 100%;
+    color: #fff;
+    font-weight: 900;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: rgba(78, 78, 232, 0.9);
+    font-size: 2rem;
+    padding: 0.94rem 0;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin: 0.94rem 0 1.3rem;
+    padding: 10px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:block;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 1px;
+}
+
+#message p {
+  padding: 1px 35px;
+  font-size: 18px;
+  margin: 5px;
+}#message h3{
+  margin-bottom:8px
+}
+#how{
+    display: none;
+    margin: 5px;
+    font-weight: 900;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+#weak::before{
+  width: 20%;
+  background: #E64A4A;
+}
+#medium::before{
+  width: 50%;
+  background: #f1c80b;
+}
+#green::before{
+  width: 100%;
+  background: green;
+}
+div .span{
+    color: #0a0909;
+    text-align: center;
+    margin-left: 40%;
+    font-weight: 900;
+}
