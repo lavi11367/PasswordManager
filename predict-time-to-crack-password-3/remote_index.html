@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Crack Time Prediction</title>
+    <style>
+        input[type=text], select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border-radius: 50px;
+            box-sizing: border-box;
+            border: solid 1.5px #fff;
+            -webkit-transition: 1s; /* Safari */
+            transition: 1s;
+            position: absolute;
+
+        }
+
+
+        input[type=text]:hover{
+            box-shadow: 0 0 5pt 0.5pt #ffffff;
+        }
+        input[type=text]:focus {
+            box-shadow: 0 0 5pt 2pt #ffffff;
+            outline-width: 0px;
+        }
+
+        /*button css*/
+        .button-1 {
+            background-color: rgba(94, 94, 220, 0.9);
+            border-radius: 20px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            height: 40px;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            padding: 10px 16px;
+            position: absolute;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            left:140px;
+            top:77px;
+        }
+
+        .button-1:hover,
+        .button-1:focus {
+            background-color: rgba(76, 76, 220, 0.9);
+
+        }
+        #predictionResult{
+            position: relative;
+            top: 90px;
+            left: 90px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<input type="text" id="password" name="password"><br>
+<button class="button-1" onclick="predictTime()">Predict Time</button>
+<p id="predictionResult"></p>
+<script>
+    async function predictTime() {
+        const password = document.getElementById('password').value;
+        const url = 'https://predict-time-to-crack-password.onrender.com/api/predict'
+        const resp = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ password }),
+        });
+        console.log(resp);
+        if (resp.ok) {
+            const res = await resp.json();
+            console.log(res);
+            const timeInSeconds = res['time_sec'];
+            const timeFormatted = formatTime(timeInSeconds);
+            document.getElementById('predictionResult').innerText = `The Time needed to crack is: ${timeFormatted}`;
+        } else {
+            console.error('Error:', resp.statusText);
+            document.getElementById('predictionResult').innerText = 'Error predicting time';
+        }
+    }
+
+    function formatTime(seconds) {
+        let timeString = '';
+
+        const centuries = Math.floor(seconds / (3600 * 24 * 365 * 100));
+        if (centuries > 0) {
+            timeString += `${centuries} Centuries, `;
+            seconds %= (3600 * 24 * 365 * 100);
+        }
+
+        const years = Math.floor(seconds / (3600 * 24 * 365));
+        if (years > 0) {
+            timeString += `${years} Years, `;
+            seconds %= (3600 * 24 * 365);
+        }
+
+        const days = Math.floor(seconds / (3600 * 24));
+        if (days > 0) {
+            timeString += `${days} Days, `;
+            seconds %= (3600 * 24);
+        }
+
+        const hours = Math.floor(seconds / 3600);
+        if (hours > 0) {
+            timeString += `${hours} Hours, `;
+            seconds %= 3600;
+        }
+
+        const minutes = Math.floor(seconds / 60);
+        if (minutes > 0) {
+            timeString += `${minutes} Minutes, `;
+            seconds %= 60;
+        }
+
+        if (seconds > 0) {
+            timeString += `${Math.floor(seconds)} Seconds`;
+        }
+
+        return timeString.replace(/, $/, '');
+    }
+</script>
+</body>
+</html>
+
+
+
+

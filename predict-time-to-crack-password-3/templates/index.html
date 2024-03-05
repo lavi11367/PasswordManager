@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Time To Crack Password Prediction</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="login">
+      <h1>Predict Time-To-Crack-Password</h1>
+      <form action="{{ url_for('predict')}}"method="post">
+        Password: <input type="text" name="password" placeholder="Enter password to find time to crack..." required="required"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+      <br>
+      <br>
+      {{prediction_text}}
+    </div>
+  </body>
+</html>
